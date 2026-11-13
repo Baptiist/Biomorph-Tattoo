@@ -1,0 +1,110 @@
+
+<!DOCTYPE html>
+<html lang="fr">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta name="description" content="Découvrez Biomorph Tattoo, un univers artistique dédié au tatouage.">
+  <title>Biomorph Tattoo | Salon de tatouage</title>
+  <style>
+    * { box-sizing: border-box; }
+    html { scroll-behavior: smooth; }
+    body {
+      margin: 0;
+      background: #101010;
+      color: #f5f2ed;
+      font-family: Arial, sans-serif;
+    }
+    header {
+      padding: 24px 8%;
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      gap: 20px;
+      border-bottom: 1px solid #333;
+    }
+    .logo { font-weight: bold; letter-spacing: 3px; }
+    nav a {
+      color: #eee;
+      text-decoration: none;
+      margin-left: 20px;
+    }
+    .hero {
+      min-height: 75vh;
+      display: flex;
+      flex-direction: column;
+      justify-content: center;
+      align-items: center;
+      text-align: center;
+      padding: 60px 20px;
+      background: radial-gradient(circle, #34302d, #101010 70%);
+    }
+    h1 {
+      font-size: clamp(40px, 8vw, 90px);
+      letter-spacing: 5px;
+      margin: 0;
+    }
+    .hero p { color: #bbb; font-size: 19px; }
+    .button {
+      display: inline-block;
+      margin-top: 25px;
+      padding: 16px 30px;
+      border: 1px solid #c8a77a;
+      color: #c8a77a;
+      text-decoration: none;
+      transition: 0.3s;
+    }
+    .button:hover { background: #c8a77a; color: #111; }
+    section { padding: 80px 10%; text-align: center; }
+    h2 { font-size: 34px; }
+    .muted { color: #bbb; line-height: 1.8; }
+    footer {
+      padding: 30px;
+      text-align: center;
+      border-top: 1px solid #333;
+      color: #aaa;
+    }
+    @media(max-width: 650px) {
+      header { flex-direction: column; text-align: center; }
+      nav a { margin: 0 8px; font-size: 14px; }
+      section { padding: 60px 7%; }
+    }
+  </style>
+</head>
+<body>
+  <header>
+    <div class="logo">BIOMORPH TATTOO</div>
+    <nav>
+      <a href="#accueil">Accueil</a>
+      <a href="#salon">Le salon</a>
+      <a href="#contact">Contact</a>
+    </nav>
+  </header>
+
+  <main>
+    <div class="hero" id="accueil">
+      <h1>BIOMORPH</h1>
+      <p>TATTOO STUDIO</p>
+      <a class="button" href="#contact">DÉCOUVRIR LE SALON</a>
+    </div>
+
+    <section id="salon">
+      <h2>L'art de marquer votre histoire</h2>
+      <p class="muted">
+        Bienvenue chez Biomorph Tattoo.
+        Découvrez un univers où le tatouage
+        devient une expression personnelle et artistique.
+      </p>
+    </section>
+
+    <section id="contact">
+      <h2>Votre prochain projet commence ici</h2>
+      <p class="muted">
+        Contactez le salon pour discuter de votre futur tatouage.
+      </p>
+    </section>
+  </main>
+
+  <footer>© Biomorph Tattoo</footer>
+</body>
+</html>
