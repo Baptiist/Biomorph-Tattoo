@@ -2,109 +2,931 @@
 <!DOCTYPE html>
 <html lang="fr">
 <head>
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.7.2/css/all.min.css">
   <meta charset="UTF-8">
-  <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <meta name="description" content="Découvrez Biomorph Tattoo, un univers artistique dédié au tatouage.">
-  <title>Biomorph Tattoo | Salon de tatouage</title>
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <meta name="description" content="Biomorph Tattoo, un univers artistique dédié au tatouage.">
+  <title>Biomorph Tattoo | Tattoo Studio</title>
+
   <style>
+    :root {
+      --noir: #080808;
+      --blanc: #f5f4f1;
+      --gris: #a7a7a7;
+    }
+
     * { box-sizing: border-box; }
+
     html { scroll-behavior: smooth; }
+
     body {
       margin: 0;
-      background: #101010;
-      color: #f5f2ed;
+      background: var(--noir);
+      color: var(--blanc);
       font-family: Arial, sans-serif;
     }
+
     header {
-      padding: 24px 8%;
+      position: sticky;
+      top: 0;
+      z-index: 10;
       display: flex;
       justify-content: space-between;
       align-items: center;
-      gap: 20px;
-      border-bottom: 1px solid #333;
+      padding: 25px 7%;
+      background: rgba(8,8,8,.95);
+      border-bottom: 1px solid #252525;
     }
-    .logo { font-weight: bold; letter-spacing: 3px; }
+
+ .brand {
+    font-family: Arial, sans-serif;
+    font-size: 17px;
+    font-weight: bold;
+    letter-spacing: 4px;
+    color: #ffffff;
+    text-decoration: none;
+    white-space: nowrap;
+}
+
+.brand:visited,
+.brand:hover,
+.brand:active {
+    color: #ffffff;
+    text-decoration: none;
+}
+
+    nav {
+    display: flex;
+    align-items: center;
+    gap: 30px;
+}
+
     nav a {
-      color: #eee;
-      text-decoration: none;
-      margin-left: 20px;
-    }
+    color: #ffffff;
+    text-decoration: none;
+    font-size: 12px;
+    font-weight: normal;
+    letter-spacing: 2px;
+    text-transform: uppercase;
+    white-space: nowrap;
+}
+
+    nav a:hover { color: var(--gris); }
+
     .hero {
-      min-height: 75vh;
+      min-height: 90vh;
+      display: grid;
+      grid-template-columns: 1fr 1fr;
+      align-items: center;
+      gap: 5%;
+      padding: 70px 9%;
+    }
+
+    .hero-image {
+      width: 100%;
+      max-height: 650px;
+      object-fit: contain;
+      animation: appear 1.5s ease both;
+    }
+
+    .eyebrow {
+      color: var(--gris);
+      text-transform: uppercase;
+      letter-spacing: 5px;
+      font-size: 11px;
+    }
+
+    h1 {
+      font-size: clamp(48px, 7vw, 105px);
+      font-weight: 400;
+      letter-spacing: -4px;
+      line-height: 1;
+      margin: 25px 0;
+    }
+
+    .hero-content {
+      animation: appear 1.5s ease .3s both;
+    }
+
+    .hero-content p {
+      max-width: 430px;
+      line-height: 1.9;
+      color: var(--gris);
+    }
+
+    .btn {
+      display: inline-block;
+      padding: 18px 28px;
+      margin-top: 25px;
+      border: 1px solid var(--blanc);
+      color: var(--blanc);
+      text-decoration: none;
+      text-transform: uppercase;
+      letter-spacing: 2px;
+      font-size: 11px;
+      transition: .3s;
+    }
+
+    .btn:hover {
+      background: var(--blanc);
+      color: var(--noir);
+    }
+
+    section {
+      padding: 110px 10%;
+      border-top: 1px solid #252525;
+    }
+
+    h2 {
+      font-size: clamp(35px, 5vw, 65px);
+      font-weight: 400;
+      letter-spacing: -2px;
+    }
+
+    .description {
+      color: var(--gris);
+      max-width: 650px;
+      line-height: 2;
+    }
+
+    .gallery {
+      display: grid;
+      grid-template-columns: repeat(3, 1fr);
+      gap: 15px;
+      margin-top: 45px;
+    }
+
+    .gallery-item {
+      min-height: 250px;
+      border: 1px solid #333;
       display: flex;
-      flex-direction: column;
       justify-content: center;
       align-items: center;
+      color: #777;
+      font-size: 12px;
+      letter-spacing: 2px;
       text-align: center;
-      padding: 60px 20px;
-      background: radial-gradient(circle, #34302d, #101010 70%);
     }
-    h1 {
-      font-size: clamp(40px, 8vw, 90px);
-      letter-spacing: 5px;
-      margin: 0;
-    }
-    .hero p { color: #bbb; font-size: 19px; }
-    .button {
-      display: inline-block;
-      margin-top: 25px;
-      padding: 16px 30px;
-      border: 1px solid #c8a77a;
-      color: #c8a77a;
-      text-decoration: none;
-      transition: 0.3s;
-    }
-    .button:hover { background: #c8a77a; color: #111; }
-    section { padding: 80px 10%; text-align: center; }
-    h2 { font-size: 34px; }
-    .muted { color: #bbb; line-height: 1.8; }
+
     footer {
-      padding: 30px;
       text-align: center;
-      border-top: 1px solid #333;
-      color: #aaa;
+      padding: 35px;
+      color: var(--gris);
+      border-top: 1px solid #252525;
+      font-size: 12px;
     }
-    @media(max-width: 650px) {
-      header { flex-direction: column; text-align: center; }
-      nav a { margin: 0 8px; font-size: 14px; }
-      section { padding: 60px 7%; }
+
+    @keyframes appear {
+      from { opacity: 0; transform: translateY(25px); }
+      to { opacity: 1; transform: translateY(0); }
     }
-  </style>
+
+    @media (max-width: 750px) {
+      header {
+        flex-direction: column;
+        gap: 20px;
+      }
+
+      nav { gap: 15px; }
+
+      nav a { font-size: 10px; }
+
+      .hero {
+        grid-template-columns: 1fr;
+        text-align: center;
+        padding: 40px 7%;
+      }
+
+      .hero-image {
+        max-height: 430px;
+      }
+
+      .hero-content p { margin: 20px auto; }
+
+      h1 { letter-spacing: -2px; }
+
+      section { padding: 75px 7%; }
+
+      .gallery { grid-template-columns: 1fr; }
+    }
+
+    @media (prefers-reduced-motion: reduce) {
+      *, *::before, *::after {
+        animation-duration: .01ms !important;
+        scroll-behavior: auto !important;
+      }
+    }
+
+
+/* Galerie de l'accueil */
+.gallery {
+  display: grid;
+  grid-template-columns: repeat(3, minmax(0, 1fr));
+  gap: 18px;
+}
+
+.gallery .gallery-item {
+  display: block;
+  height: 380px;
+  padding: 0;
+  overflow: hidden;
+  background: #151515;
+  border: 1px solid #292929;
+}
+
+.gallery .gallery-item img {
+  display: block;
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  transition: transform 0.5s ease;
+}
+/* Affichage des peintures sur l'accueil */
+.paintings-section .gallery-item {
+    background: transparent;
+    border: none;
+}
+
+.paintings-section .gallery-item img {
+    object-fit: contain;
+}
+
+.gallery .gallery-item:hover img {
+  transform: scale(1.06);
+}
+
+.gallery-cta {
+  text-align: center;
+  margin-top: 40px;
+}
+
+.gallery-cta a {
+  display: inline-block;
+  padding: 17px 28px;
+  border: 1px solid #777;
+  color: #fff;
+  text-decoration: none;
+  font-size: 11px;
+  letter-spacing: 2px;
+  transition: 0.3s;
+}
+
+.gallery-cta a:hover {
+  background: #fff;
+  color: #080808;
+}
+
+@media (max-width: 650px) {
+  .gallery {
+    grid-template-columns: 1fr;
+  }
+
+  .gallery .gallery-item {
+    height: 420px;
+  }
+}
+
+ 
+/* Grande bannière vidéo d'accueil */
+.hero {
+    position: relative;
+    width: 100%;
+    min-height: 450px;
+    overflow: hidden;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+
+
+.hero-video {
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+    object-position: center;
+    z-index: 0;
+}
+
+
+.hero-content {
+    position: relative;
+    z-index: 2;
+    text-align: center;
+}
+
+/* Voile sombre pour garder les textes lisibles */
+.hero::after {
+    content: "";
+    position: absolute;
+    inset: 0;
+    background: rgba(0, 0, 0, 0.35);
+    z-index: 1;
+}
+
+@media (max-width: 600px) {
+    .hero {
+        min-height: 450px;
+    }
+}
+ /* Réseaux sociaux au centre du header */
+header {
+    position: relative;
+}
+
+.header-socials {
+    position: absolute;
+    left: 50%;
+    top: 50%;
+    transform: translate(-50%, -50%);
+    display: flex;
+    align-items: center;
+    gap: 12px;
+}
+
+.social-bubble {
+    width: 36px;
+    height: 36px;
+    border: 1px solid rgba(255, 255, 255, 0.6);
+    border-radius: 50%;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    color: white;
+    text-decoration: none;
+    font-size: 17px;
+    transition: 0.3s;
+}
+
+.social-bubble:hover {
+    background: white;
+    color: black;
+}
+
+/* Adaptation aux petits écrans */
+@media (max-width: 900px) {
+    .header-socials {
+        position: static;
+        transform: none;
+        justify-content: center;
+    }
+}
+
+    /* SECTION AVIS CLIENTS */
+
+.avis-section {
+    padding: 90px 10%;
+    background: #0a0a0a;
+    text-align: center;
+}
+
+.avis-section h2 {
+    font-size: 32px;
+    font-weight: 500;
+    letter-spacing: 4px;
+    margin-bottom: 45px;
+    color: #fff;
+}
+
+.avis-grid {
+    display: grid;
+    grid-template-columns: repeat(3, 1fr);
+    gap: 22px;
+}
+
+.avis-card {
+    background: #141414;
+    border: 1px solid #333;
+    padding: 32px 25px;
+    display: flex;
+    flex-direction: column;
+    align-items: flex-start;
+    text-align: left;
+    transition: 0.3s ease;
+}
+
+.avis-card:hover {
+    border-color: #888;
+    transform: translateY(-4px);
+}
+
+.avis-source {
+    color: #aaa;
+    font-size: 18px;
+    margin-bottom: 20px;
+}
+
+.avis-card p {
+    color: #ddd;
+    font-size: 14px;
+    line-height: 1.9;
+    margin: 0 0 25px;
+    flex-grow: 1;
+}
+
+.avis-name {
+    color: #fff;
+    font-size: 13px;
+    font-weight: 600;
+    letter-spacing: 1px;
+}
+
+/* VERSION MOBILE */
+
+@media (max-width: 800px) {
+    .avis-section {
+        padding: 60px 6%;
+    }
+
+    .avis-grid {
+        grid-template-columns: 1fr;
+    }
+
+    .avis-section h2 {
+        font-size: 25px;
+    }
+}
+
+/* CARROUSEL AVIS CLIENTS */
+
+.avis-carousel {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    gap: 20px;
+    width: 100%;
+}
+
+.avis-carousel .avis-grid {
+    flex: 1;
+    min-width: 0;
+}
+
+.avis-arrow {
+    width: 42px;
+    height: 42px;
+    flex-shrink: 0;
+    border: 1px solid #555;
+    border-radius: 50%;
+    background: transparent;
+    color: white;
+    font-size: 16px;
+    cursor: pointer;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    transition: 0.3s;
+}
+
+.avis-arrow:hover {
+    background: white;
+    color: black;
+}
+
+@media (max-width: 800px) {
+    .avis-carousel {
+        gap: 8px;
+    }
+
+    .avis-arrow {
+        width: 32px;
+        height: 32px;
+    }
+}
+/* Position des flèches du carrousel */
+
+.avis-carousel {
+    display: flex;
+    flex-wrap: nowrap;
+    align-items: center;
+    gap: 16px;
+}
+
+.avis-carousel .avis-grid {
+    flex: 1 1 0;
+    min-width: 0;
+}
+
+.avis-carousel .avis-arrow {
+    flex: 0 0 42px;
+    margin: 0;
+}
+
+.avis-carousel .avis-next {
+    order: 3;
+}
+
+.avis-carousel .avis-grid {
+    order: 2;
+}
+
+.avis-carousel .avis-prev {
+    order: 1;
+}
+/* CORRECTION AFFICHAGE CARROUSEL */
+
+.avis-carousel {
+    display: flex;
+    flex-wrap: nowrap;
+    align-items: center;
+    width: 100%;
+    max-width: 100%;
+    gap: 16px;
+    box-sizing: border-box;
+}
+
+.avis-fenetre {
+    flex: 1 1 0;
+    width: 0;
+    min-width: 0;
+    overflow: hidden;
+}
+
+.avis-fenetre .avis-grid {
+    display: flex;
+    flex-wrap: nowrap;
+    width: 100%;
+    min-width: 0;
+    max-width: none;
+    gap: 22px;
+    margin: 0;
+}
+
+.avis-fenetre .avis-card {
+    box-sizing: border-box;
+    flex-shrink: 0;
+    min-width: 0;
+}
+
+.avis-carousel .avis-arrow {
+    flex: 0 0 42px;
+    width: 42px;
+    height: 42px;
+    margin: 0;
+}
+/* POSITION FINALE DES FLÈCHES */
+
+.avis-carousel .avis-prev {
+    order: 1;
+}
+
+.avis-carousel .avis-fenetre {
+    order: 2;
+    flex: 1 1 0;
+    min-width: 0;
+}
+
+.avis-carousel .avis-next {
+    order: 3;
+}
+/* BARRE DE NAVIGATION TOUJOURS VISIBLE */
+
+header {
+    position: sticky;
+    top: 0;
+    z-index: 1000;
+    background: #080808;
+}
+.brand {
+    text-decoration: none;
+    color: white;
+    cursor: pointer;
+}
+/* BOUTON CONTACT EN BAS DE L'ACCUEIL */
+
+.btn-contact-accueil {
+    display: inline-block;
+    margin-top: 30px;
+    padding: 15px 40px;
+    background: white;
+    color: black;
+    border: 1px solid white;
+    text-decoration: none;
+    font-size: 12px;
+    font-weight: 600;
+    letter-spacing: 2px;
+    transition: 0.3s;
+}
+
+.btn-contact-accueil:hover {
+    background: transparent;
+    color: white;
+}
+</style>
 </head>
+
 <body>
+
   <header>
-    <div class="logo">BIOMORPH TATTOO</div>
+    <a href="index.html" class="brand" onclick="if (location.pathname.endsWith('/index.html')) { window.scrollTo(0, 0); }">BIOMORPH TATTOO</a>
     <nav>
       <a href="#accueil">Accueil</a>
       <a href="#salon">Le salon</a>
-      <a href="#contact">Contact</a>
+      <a href="realisations.html">Galerie</a>
+      <a href="peintures.html">Peintures</a>
+      <a href="contact.html">Contact</a>
     </nav>
+    
+    <div class="header-socials">
+    <a href="https://www.instagram.com/bio.morph_tattoo/"
+       target="_blank" rel="noopener noreferrer"
+       class="social-bubble" aria-label="Instagram">
+        <i class="fa-brands fa-instagram"></i>
+    </a>
+
+    <a href="https://www.facebook.com/Engrenagetattoo"
+       target="_blank" rel="noopener noreferrer"
+       class="social-bubble" aria-label="Facebook">
+        <i class="fa-brands fa-facebook-f"></i>
+    </a>
+</div>
   </header>
 
   <main>
     <div class="hero" id="accueil">
-      <h1>BIOMORPH</h1>
-      <p>TATTOO STUDIO</p>
-      <a class="button" href="#contact">DÉCOUVRIR LE SALON</a>
+     
+<video class="hero-video" autoplay muted loop playsinline poster="biomorph.png">
+    <source src="images/tattoo-banner.mp4" type="video/mp4">
+</video>
+
+
+      <div class="hero-content">
+        
+  
+        <p>
+          Une vision artistique du tatouage.
+          Des créations personnelles, pensées pour
+          raconter votre histoire.
+        </p>
+        <a class="btn" href="#galerie">
+          Découvrir les réalisations
+        </a>
+      </div>
     </div>
 
     <section id="salon">
-      <h2>L'art de marquer votre histoire</h2>
-      <p class="muted">
+      <span class="eyebrow">Notre univers</span>
+      <h2>Bien plus qu'un tatouage.</h2>
+      <p class="description">
         Bienvenue chez Biomorph Tattoo.
-        Découvrez un univers où le tatouage
-        devient une expression personnelle et artistique.
+        Un espace dédié à la créativité, à l'expression
+        personnelle et à l'art du tatouage.
       </p>
     </section>
 
-    <section id="contact">
-      <h2>Votre prochain projet commence ici</h2>
-      <p class="muted">
-        Contactez le salon pour discuter de votre futur tatouage.
+    <section id="galerie">
+      <span class="eyebrow">Portfolio</span>
+      <h2>Les réalisations.</h2>
+      <p class="description">
+        Découvrez une sélection de nos tatouages. Chaque création est unique, pensée pour raconter votre histoire. Une sélection
+        des créations du salon.
       </p>
+
+      
+<div class="gallery">
+  <a href="realisations.html" class="gallery-item">
+    <img src="images/1.png" alt="Tatouage réaliste Biomorph Tattoo">
+  </a>
+
+  <a href="realisations.html" class="gallery-item">
+    <img src="images/3.png" alt="Tatouage masque horrifique Biomorph Tattoo">
+  </a>
+
+  <a href="realisations.html" class="gallery-item">
+    <img src="images/8.png" alt="Tatouage clown Biomorph Tattoo">
+  </a>
+</div>
+
+<div class="gallery-cta">
+  <a href="realisations.html">VOIR TOUTES LES RÉALISATIONS →</a>
+</div>
+
+    </section>
+<section id="peintures" class="paintings-section">
+    <span class="eyebrow">Mais également</span>
+    <h2>Les peintures.</h2>
+
+    <div class="gallery">
+        <a href="peintures.html" class="gallery-item">
+            <img src="images/peintures/peinture1.png" alt="Peinture Biomorph Tattoo">
+        </a>
+
+        <a href="peintures.html" class="gallery-item">
+            <img src="images/peintures/peinture2.png" alt="Peinture Biomorph Tattoo">
+        </a>
+
+        <a href="peintures.html" class="gallery-item">
+            <img src="images/peintures/peinture3.png" alt="Peinture Biomorph Tattoo">
+        </a>
+    </div>
+
+    <div class="gallery-cta">
+        <a href="peintures.html">VOIR TOUTES LES PEINTURES</a>
+    </div>
+</section>
+<section id="avis" class="avis-section">
+    <h2>AVIS CLIENTS</h2>
+
+    <div class="avis-carousel">
+    <button class="avis-arrow avis-prev" aria-label="Avis précédent">
+        <i class="fa-solid fa-chevron-left"></i>
+    </button>
+
+    <div class="avis-grid">
+
+        <div class="avis-card">
+            <div class="avis-source">
+                <i class="fa-brands fa-facebook-f"></i>
+            </div>
+            <p>« Très gentil, professionnel, à l'écoute. Je suis très satisfaite de mes deux tatouages fait ce matin. Je reviendrais sans aucun doute. Encore merci, à bientôt ! »</p>
+            <span class="avis-name">Ophélie R.</span>
+        </div>
+
+        <div class="avis-card">
+            <div class="avis-source">
+                <i class="fa-brands fa-facebook-f"></i>
+            </div>
+            <p>« Professionnel, très gentil. Bon son dans le salon. Nous sommes très satisfait pour ce projet qui nous tenais à cœur. Je recommande les yeux fermé si vous voulez vous faire piquez ! »</p>
+            <span class="avis-name">Emma M.</span>
+        </div>
+
+        <div class="avis-card">
+            <div class="avis-source">
+                <i class="fa-brands fa-facebook-f"></i>
+            </div>
+            <p>« Très à l’écoute, très gentils et super travail ! »</p>
+            <span class="avis-name">Eléonore C.</span>
+        </div>
+
+        <div class="avis-card">
+    <div class="avis-source">
+        <i class="fa-brands fa-facebook-f"></i>
+    </div>
+    <p>« Parfait, à l'écoute et réactif. Je recommande sans hésiter. Un travail minutieux et propre. Merci Sam. »</p>
+    <span class="avis-name">Sophie F.</span>
+</div>
+
+<div class="avis-card">
+    <div class="avis-source">
+        <i class="fa-brands fa-facebook-f"></i>
+    </div>
+    <p>« Allez voir Sam... il est super sympa, hyper pro et il a vraiment beaucoup de talent... merci pour mon tatoo... »</p>
+    <span class="avis-name">Séverine G.</span>
+</div>
+
+<div class="avis-card">
+    <div class="avis-source">
+        <i class="fa-brands fa-facebook-f"></i>
+    </div>
+    <p>« Il est au top ce tatoueur, je recommande à 100 % ! D'ailleurs bientôt le prochain Sam. »</p>
+    <span class="avis-name">Teddy P.</span>
+</div>
+
+<div class="avis-card">
+    <div class="avis-source">
+        <i class="fa-brands fa-facebook-f"></i>
+    </div>
+    <p>« Vraiment à l'écoute et de très bon conseil. Je suis venue avec ma fille pour un tatouage en commun. On est vraiment contentes du résultat. Nous reviendrons certainement. »</p>
+    <span class="avis-name">DX V.</span>
+</div>
+</div>
+    <button class="avis-arrow avis-next" aria-label="Avis suivant">
+        <i class="fa-solid fa-chevron-right"></i>
+    </button>
+</div>
+</section>
+    <section id="contact">
+      <span class="eyebrow">Votre projet</span>
+      <h2>Écrivons votre histoire.</h2>
+      <p class="description">
+        Une idée de tatouage ?
+        Contactez Biomorph Tattoo pour discuter
+        de votre projet.
+      </p>
+     <a href="contact.html" class="btn-contact-accueil">
+    CONTACT
+</a>
     </section>
   </main>
 
-  <footer>© Biomorph Tattoo</footer>
+  <footer>
+    © 2026 Biomorph Tattoo — Tous droits réservés.
+  </footer>
+
+<script>
+document.addEventListener("DOMContentLoaded", function () {
+    const grille = document.querySelector(".avis-grid");
+    const carousel = document.querySelector(".avis-carousel");
+    const precedent = document.querySelector(".avis-prev");
+    const suivant = document.querySelector(".avis-next");
+
+    if (!grille || !carousel || !precedent || !suivant) return;
+
+    const cartes = Array.from(grille.querySelectorAll(".avis-card"));
+    if (cartes.length < 2) return;
+
+    // On crée une fenêtre qui masque les cartes sur les côtés.
+    const fenetre = document.createElement("div");
+    fenetre.className = "avis-fenetre";
+    grille.parentNode.insertBefore(fenetre, grille);
+    fenetre.appendChild(grille);
+
+    let enAnimation = false;
+    let minuterie;
+
+    function nombreVisible() {
+        return window.innerWidth <= 800 ? 1 : 3;
+    }
+
+    function largeurCarte() {
+        const carte = grille.querySelector(".avis-card");
+        const espace = parseFloat(getComputedStyle(grille).gap) || 0;
+        return carte.getBoundingClientRect().width + espace;
+    }
+
+    function preparer() {
+        grille.style.transition = "none";
+        grille.style.transform = "translateX(0)";
+        grille.style.display = "flex";
+        grille.style.width = "100%";
+        grille.style.flexWrap = "nowrap";
+
+        cartes.forEach(carte => {
+            carte.style.display = "flex";
+            carte.style.flex = `0 0 calc((100% - ${(nombreVisible() - 1) * 22}px) / ${nombreVisible()})`;
+        });
+    }
+
+    function avancer() {
+        if (enAnimation) return;
+        enAnimation = true;
+
+        grille.style.transition = "transform 700ms ease-in-out";
+        grille.style.transform = `translateX(-${largeurCarte()}px)`;
+    }
+
+    grille.addEventListener("transitionend", function (event) {
+        if (event.propertyName !== "transform" || !enAnimation) return;
+
+        grille.style.transition = "none";
+        grille.appendChild(grille.firstElementChild);
+        grille.style.transform = "translateX(0)";
+        enAnimation = false;
+    });
+
+    function reculer() {
+        if (enAnimation) return;
+        enAnimation = true;
+
+        grille.style.transition = "none";
+        grille.insertBefore(grille.lastElementChild, grille.firstElementChild);
+        grille.style.transform = `translateX(-${largeurCarte()}px)`;
+
+        // Force le navigateur à appliquer la position de départ.
+        void grille.offsetWidth;
+
+        grille.style.transition = "transform 700ms ease-in-out";
+        grille.style.transform = "translateX(0)";
+
+        grille.addEventListener("transitionend", function fin(event) {
+            if (event.propertyName !== "transform") return;
+            enAnimation = false;
+            grille.removeEventListener("transitionend", fin);
+        });
+    }
+
+    function demarrer() {
+        clearInterval(minuterie);
+        minuterie = setInterval(avancer, 4000);
+    }
+
+    precedent.addEventListener("click", function () {
+        reculer();
+        demarrer();
+    });
+
+    suivant.addEventListener("click", function () {
+        avancer();
+        demarrer();
+    });
+
+    carousel.addEventListener("mouseenter", function () {
+        clearInterval(minuterie);
+    });
+
+    carousel.addEventListener("mouseleave", demarrer);
+
+    window.addEventListener("resize", function () {
+        if (!enAnimation) preparer();
+    });
+
+    preparer();
+    demarrer();
+});
+</script>
+
+</script>
 </body>
 </html>

@@ -1,0 +1,357 @@
+
+<!DOCTYPE html>
+<html lang="fr">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <meta name="description" content="Découvrez les réalisations et tatouages de Biomorph Tattoo.">
+  <title>Réalisations | Biomorph Tattoo</title>
+
+  <style>
+    :root {
+      --noir: #080808;
+      --blanc: #f5f4f1;
+      --gris: #a7a7a7;
+    }
+
+    * { box-sizing: border-box; }
+
+    html { scroll-behavior: smooth; }
+
+    body {
+      margin: 0;
+      background: var(--noir);
+      color: var(--blanc);
+      font-family: Arial, sans-serif;
+    }
+
+    body.modal-open { overflow: hidden; }
+
+    header {
+      position: sticky;
+      top: 0;
+      z-index: 10;
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      gap: 20px;
+      padding: 25px 7%;
+      background: rgba(8,8,8,.97);
+      border-bottom: 1px solid #252525;
+    }
+
+.brand {
+    font-family: Arial, sans-serif;
+    font-size: 17px;
+    font-weight: bold;
+    letter-spacing: 4px;
+    color: #ffffff;
+    text-decoration: none;
+    white-space: nowrap;
+}
+
+.brand:visited,
+.brand:hover,
+.brand:active {
+    color: #ffffff;
+    text-decoration: none;
+}
+
+    nav {
+      display: flex;
+      flex-wrap: center;
+      gap: 30px;
+    }
+
+    nav a {
+      color: var(--blanc);
+      text-decoration: none;
+      font-size: 12px;
+      letter-spacing: 2px;
+      text-transform: uppercase;
+    }
+
+    nav a:hover,
+    nav a.active { color: var(--gris); }
+
+    .intro {
+      padding: 110px 8% 70px;
+      text-align: center;
+    }
+
+    .eyebrow {
+      color: var(--gris);
+      font-size: 11px;
+      letter-spacing: 5px;
+      text-transform: uppercase;
+    }
+
+    h1 {
+      font-size: clamp(48px, 8vw, 105px);
+      font-weight: 400;
+      letter-spacing: -4px;
+      margin: 25px 0;
+    }
+
+    .intro p {
+      color: var(--gris);
+      line-height: 1.9;
+      max-width: 580px;
+      margin: 0 auto;
+    }
+
+    .gallery {
+      max-width: 1450px;
+      margin: 0 auto;
+      padding: 20px 7% 120px;
+      columns: 3 260px;
+      column-gap: 18px;
+    }
+
+    .photo {
+      display: block;
+      width: 100%;
+      padding: 0;
+      margin: 0 0 18px;
+      border: 0;
+      background: #171717;
+      cursor: zoom-in;
+      overflow: hidden;
+      break-inside: avoid;
+      position: relative;
+    }
+
+    .photo img {
+      display: block;
+      width: 100%;
+      height: auto;
+      transition: transform .5s ease, opacity .5s ease;
+    }
+
+    .photo:hover img {
+      transform: scale(1.045);
+      opacity: .85;
+    }
+
+    .photo::after {
+      content: "AGRANDIR +";
+      position: absolute;
+      bottom: 20px;
+      left: 20px;
+      color: white;
+      font-size: 10px;
+      letter-spacing: 2px;
+      opacity: 0;
+      transition: opacity .3s;
+      pointer-events: none;
+    }
+
+    .photo:hover::after { opacity: 1; }
+
+    .lightbox {
+      position: fixed;
+      inset: 0;
+      z-index: 100;
+      background: rgba(0,0,0,.96);
+      display: none;
+      align-items: center;
+      justify-content: center;
+      padding: 55px 20px 20px;
+    }
+
+    .lightbox.open { display: flex; }
+
+    .lightbox img {
+      max-width: 95%;
+      max-height: 90%;
+      object-fit: contain;
+    }
+
+    .close {
+      position: absolute;
+      top: 15px;
+      right: 25px;
+      background: transparent;
+      border: 0;
+      color: white;
+      font-size: 38px;
+      cursor: pointer;
+    }
+
+    footer {
+      padding: 35px;
+      text-align: center;
+      border-top: 1px solid #252525;
+      color: var(--gris);
+      font-size: 12px;
+    }
+
+    @media (max-width: 750px) {
+      header {
+    flex-direction: column;
+}
+
+nav {
+    display: flex;
+    justify-content: center;
+    gap: 15px;
+}
+
+     nav a {
+    color: #ffffff;
+    text-decoration: none;
+    font-size: 12px;
+    font-weight: normal;
+    letter-spacing: 2px;
+    text-transform: uppercase;
+    white-space: nowrap;
+}
+
+      .intro { padding: 75px 7% 50px; }
+
+      h1 { letter-spacing: -2px; }
+
+      .gallery {
+        padding: 10px 5% 75px;
+        columns: 2 150px;
+        column-gap: 10px;
+      }
+
+      .photo { margin-bottom: 10px; }
+    }
+
+    @media (prefers-reduced-motion: reduce) {
+      *, *::before, *::after {
+        transition: none !important;
+        scroll-behavior: auto !important;
+      }
+    }
+    /* Animation des photos de tatouages */
+
+.gallery .photo {
+    overflow: hidden;
+    cursor: pointer;
+}
+
+.gallery .photo img {
+    display: block;
+    width: 100%;
+    transition: transform 0.5s ease, filter 0.5s ease;
+}
+
+.gallery .photo:hover img {
+    transform: scale(1.05);
+    filter: brightness(1.1);
+}
+  </style>
+</head>
+
+<body>
+
+  <header>
+    <a class="brand" href="index.html">BIOMORPH TATTOO</a>
+
+    <nav>
+      <a href="index.html">Accueil</a>
+      <a href="index.html#salon">Le salon</a>
+      <a href="realisations.html" class="active" aria-current="page">Galerie</a>
+      <a href="peintures.html">Peintures</a>
+      <a href="contact.html">Contact</a>
+    </nav>
+  </header>
+
+  <main>
+    <section class="intro">
+     
+      <h1>NOS RÉALISATIONS.</h1>
+      <p>
+        Chaque tatouage raconte une histoire.
+        Découvrez une sélection des créations
+        réalisées chez Biomorph Tattoo.
+      </p>
+    </section>
+
+    <div class="gallery" aria-label="Galerie de tatouages">
+      <button class="photo" aria-label="Agrandir le tatouage 1">
+        <img src="images/1.png" alt="Tatouage portrait sombre réaliste" loading="lazy">
+      </button>
+      <button class="photo" aria-label="Agrandir le tatouage 2">
+        <img src="images/2.png" alt="Tatouage personnage en noir et gris" loading="lazy">
+      </button>
+      <button class="photo" aria-label="Agrandir le tatouage 3">
+        <img src="images/3.png" alt="Tatouage masque de hockey horrifique" loading="lazy">
+      </button>
+      <button class="photo" aria-label="Agrandir le tatouage 4">
+        <img src="images/4.png" alt="Tatouage portrait réaliste" loading="lazy">
+      </button>
+      <button class="photo" aria-label="Agrandir le tatouage 5">
+        <img src="images/5.png" alt="Tatouage géométrique montagnes et forêt" loading="lazy">
+      </button>
+      <button class="photo" aria-label="Agrandir le tatouage 6">
+        <img src="images/6.png" alt="Tatouage dodo illustré" loading="lazy">
+      </button>
+      <button class="photo" aria-label="Agrandir le tatouage 7">
+        <img src="images/7.png" alt="Tatouage personnage musclé" loading="lazy">
+      </button>
+      <button class="photo" aria-label="Agrandir le tatouage 8">
+        <img src="images/8.png" alt="Tatouage clown horrifique" loading="lazy">
+      </button>
+    </div>
+  </main>
+
+  <div class="lightbox" id="lightbox" role="dialog"
+       aria-modal="true" aria-label="Photo agrandie" hidden>
+    <button class="close" aria-label="Fermer la photo">&times;</button>
+    <img id="large-image" src="" alt="">
+  </div>
+
+  <footer>
+    © 2026 Biomorph Tattoo — Tous droits réservés.
+  </footer>
+
+  <script>
+    const lightbox = document.getElementById("lightbox");
+    const largeImage = document.getElementById("large-image");
+    const closeButton = document.querySelector(".close");
+    let previousFocus;
+
+    function closeLightbox() {
+      lightbox.classList.remove("open");
+      lightbox.hidden = true;
+      document.body.classList.remove("modal-open");
+      largeImage.removeAttribute("src");
+      if (previousFocus) previousFocus.focus();
+    }
+
+    document.querySelectorAll(".photo").forEach(button => {
+      button.addEventListener("click", () => {
+        const image = button.querySelector("img");
+        previousFocus = document.activeElement;
+        largeImage.src = image.src;
+        largeImage.alt = image.alt;
+        lightbox.hidden = false;
+        lightbox.classList.add("open");
+        document.body.classList.add("modal-open");
+        closeButton.focus();
+      });
+    });
+
+    closeButton.addEventListener("click", closeLightbox);
+
+    lightbox.addEventListener("click", event => {
+      if (event.target === lightbox) closeLightbox();
+    });
+
+    document.addEventListener("keydown", event => {
+      if (event.key === "Escape" && !lightbox.hidden) {
+        closeLightbox();
+      }
+      if (event.key === "Tab" && !lightbox.hidden) {
+        event.preventDefault();
+        closeButton.focus();
+      }
+    });
+  </script>
+
+</body>
+</html>

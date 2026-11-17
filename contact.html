@@ -1,0 +1,483 @@
+
+<!DOCTYPE html>
+<html lang="fr">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Contact | Biomorph Tattoo</title>
+
+<style>
+* { box-sizing: border-box; }
+
+body {
+  margin: 0;
+  background: #080808;
+  color: #f5f4f1;
+  font-family: Arial, sans-serif;
+}
+
+header {
+  padding: 25px 7%;
+  border-bottom: 1px solid #252525;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 20px;
+}
+
+.brand {
+    font-family: Arial, sans-serif;
+    font-size: 17px;
+    font-weight: bold;
+    letter-spacing: 4px;
+    color: #ffffff;
+    text-decoration: none;
+    white-space: nowrap;
+}
+
+.brand:visited,
+.brand:hover,
+.brand:active {
+    color: #ffffff;
+    text-decoration: none;
+}
+nav {
+    display: flex;
+    align-items: center;
+    gap: 30px;
+}
+
+nav a {
+    color: #ffffff;
+    text-decoration: none;
+    font-size: 12px;
+    font-weight: normal;
+    letter-spacing: 2px;
+    text-transform: uppercase;
+    white-space: nowrap;
+}
+
+nav a:hover, nav a.active { color: #999; }
+
+.intro {
+  text-align: center;
+  padding: 100px 20px 65px;
+}
+
+.eyebrow {
+  color: #999;
+  letter-spacing: 5px;
+  font-size: 11px;
+}
+
+h1 {
+  font-size: clamp(45px, 8vw, 100px);
+  font-weight: 400;
+  letter-spacing: -3px;
+  margin: 25px 0;
+}
+
+.intro p {
+  color: #aaa;
+  line-height: 1.8;
+}
+
+.content {
+  max-width: 1150px;
+  margin: auto;
+  padding: 20px 7% 110px;
+  display: grid;
+  grid-template-columns: 1fr 1.3fr;
+  gap: 90px;
+}
+
+h2 {
+  font-weight: 400;
+  font-size: 28px;
+  margin-bottom: 35px;
+}
+
+.info-block {
+  margin-bottom: 35px;
+}
+
+.info-block span {
+  display: block;
+  color: #777;
+  font-size: 11px;
+  letter-spacing: 3px;
+  margin-bottom: 12px;
+}
+
+.info-block p {
+  color: #ddd;
+  line-height: 1.8;
+  margin: 0;
+}
+
+form {
+  display: flex;
+  flex-direction: column;
+  gap: 20px;
+}
+
+label {
+  display: block;
+  color: #aaa;
+  font-size: 12px;
+  margin-bottom: 9px;
+}
+
+input, textarea, select {
+  width: 100%;
+  background: #111;
+  color: white;
+  border: 1px solid #333;
+  padding: 16px;
+  font: inherit;
+  border-radius: 0;
+}
+
+input:focus, textarea:focus, select:focus {
+  outline: 1px solid white;
+}
+
+textarea {
+  min-height: 145px;
+  resize: vertical;
+}
+
+button {
+  background: white;
+  color: black;
+  border: 1px solid white;
+  padding: 19px 25px;
+  font-size: 11px;
+  font-weight: bold;
+  letter-spacing: 2px;
+  cursor: pointer;
+  transition: .3s;
+}
+
+button:hover {
+  background: transparent;
+  color: white;
+}
+
+.note {
+  color: #777;
+  font-size: 12px;
+  line-height: 1.7;
+}
+
+footer {
+  border-top: 1px solid #252525;
+  text-align: center;
+  color: #777;
+  padding: 35px;
+  font-size: 12px;
+}
+
+@media(max-width: 800px) {
+  header {
+    flex-direction: column;
+  }
+
+  nav {
+    justify-content: center;
+    gap: 15px;
+  }
+
+  .content {
+    grid-template-columns: 1fr;
+    gap: 35px;
+  }
+
+  .intro {
+    padding-top: 70px;
+  }
+}
+.instagram-btn,
+.instagram-btn:visited {
+    display: inline-block;
+    padding: 16px 25px;
+    margin-top: 25px;
+    background: #ffffff;
+    color: #000000;
+    text-decoration: none;
+    font-size: 12px;
+    font-weight: bold;
+    letter-spacing: 2px;
+    text-align: center;
+}
+
+.instagram-btn:hover {
+    background: #cccccc;
+    color: #000000;
+    text-decoration: none;
+}/* Boutons d'envoi du formulaire */
+.contact-actions {
+    display: flex;
+    gap: 12px;
+    margin-top: 25px;
+}
+
+.contact-actions button {
+    flex: 1;
+    min-width: 0;
+    padding: 17px 12px;
+    background: #ffffff;
+    color: #000000;
+    border: 1px solid #ffffff;
+    font-size: 11px;
+    font-weight: bold;
+    letter-spacing: 1px;
+    text-align: center;
+    cursor: pointer;
+    transition: 0.3s;
+}
+
+.contact-actions button:hover {
+    background: #000000;
+    color: #ffffff;
+}
+
+@media (max-width: 600px) {
+    .contact-actions {
+        flex-direction: column;
+    }
+}
+.adresse-gps,
+.adresse-gps:visited {
+    color: #ffffff;
+    text-decoration: none;
+    font-size: inherit;
+    font-weight: inherit;
+    background: none;
+}
+
+.adresse-gps:hover {
+    color: #cccccc;
+    text-decoration: none;
+}
+
+/* Réseaux sociaux du salon */
+.social-icons {
+    display: flex;
+    gap: 12px;
+    margin-top: 15px;
+}
+
+.social-icon {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    width: 46px;
+    height: 46px;
+    border: 1px solid #555555;
+    border-radius: 8px;
+    background: #111111;
+    color: #ffffff;
+    text-decoration: none;
+    transition: 0.3s ease;
+}
+
+.social-icon svg {
+    width: 22px;
+    height: 22px;
+}
+
+.social-icon:hover {
+    background: #ffffff;
+    color: #000000;
+    border-color: #ffffff;
+    transform: translateY(-3px);
+}
+</style>
+</head>
+
+<body>
+
+<header>
+  <a href="index.html" class="brand">BIOMORPH TATTOO</a>
+  <nav>
+    <a href="index.html">Accueil</a>
+    <a href="index.html#salon">Le salon</a>
+    <a href="realisations.html">Galerie</a>
+    <a href="peintures.html">Peintures</a>
+    <a href="contact.html" class="active">Contact</a>
+  </nav>
+</header>
+
+<main>
+  <section class="intro">
+    <span class="eyebrow">PARLONS DE VOTRE PROJET</span>
+    <h1>CONTACT.</h1>
+    <p>
+      Une idée, une envie, un projet personnel ?<br>
+      Donnons vie à votre prochain tatouage.
+    </p>
+  </section>
+
+  <section class="content">
+
+    <div>
+      <h2>Le studio.</h2>
+
+      <div class="info-block">
+        <span>ADRESSE</span>
+        
+<a href="https://www.google.com/maps/dir/?api=1&destination=30%20Rue%20Bournizet%2C%2008400%20Vouziers%2C%20France"
+   target="_blank"
+   rel="noopener noreferrer"
+   class="adresse-gps">
+    30 rue Bournizet
+    08400 Vouziers
+</a>
+</div>
+
+
+      <div class="info-block" style="margin-top: 30px;">
+        <span>RÉSEAUX SOCIAUX</span>
+        
+<div class="social-icons">
+
+    <a href="https://www.instagram.com/bio.morph_tattoo/"
+       target="_blank"
+       rel="noopener noreferrer"
+       aria-label="Instagram Biomorph Tattoo"
+       class="social-icon">
+        <svg viewBox="0 0 24 24" fill="none"
+             stroke="currentColor" stroke-width="1.8"
+             stroke-linecap="round" stroke-linejoin="round">
+            <rect x="2" y="2" width="20" height="20" rx="5"/>
+            <circle cx="12" cy="12" r="4"/>
+            <circle cx="18" cy="6" r="1" fill="currentColor" stroke="none"/>
+        </svg>
+    </a>
+
+    <a href="https://www.facebook.com/Engrenagetattoo"
+       target="_blank"
+       rel="noopener noreferrer"
+       aria-label="Facebook Biomorph Tattoo"
+       class="social-icon">
+        <svg viewBox="0 0 24 24" fill="currentColor">
+            <path d="M22 12a10 10 0 1 0-11.56 9.88v-6.99H7.9V12h2.54V9.8c0-2.51 1.49-3.9 3.78-3.9 1.09 0 2.23.19 2.23.19v2.46h-1.26c-1.24 0-1.63.77-1.63 1.56V12h2.77l-.44 2.89h-2.33v6.99A10 10 0 0 0 22 12z"/>
+        </svg>
+    </a>
+
+</div>
+
+      </div>
+
+    </div>
+
+    <div>
+      <h2>Votre projet.</h2>
+
+      <form id="contactForm">
+
+
+        <div>
+          <label for="style">STYLE DE TATOUAGE *</label>
+          <select id="style" name="style">
+            <option value="">Choisir un style</option>
+            <option>Réalisme</option>
+            <option>Fine line</option>
+            <option>Graphique</option>
+            <option>Autre / À définir</option>
+          </select>
+        </div>
+
+        <div>
+          <label for="emplacement">EMPLACEMENT SOUHAITÉ *</label>
+          <input id="emplacement" name="emplacement"
+                 placeholder="Bras, jambe, dos...">
+        </div>
+<div>
+    <label for="taille">TAILLE EN CM *</label>
+    <input
+        id="taille"
+        name="taille"
+        type="text"
+        required
+        placeholder="Ex : 15 cm"
+    >
+</div>
+        <div>
+          <label for="message">DÉCRIVEZ VOTRE PROJET *</label>
+          <textarea id="message" name="message" required
+                    placeholder="Votre idée, dimensions, inspirations..."></textarea>
+        </div>
+
+        <div class="contact-actions">
+  <button type="button" onclick="envoyerProjet('instagram')">
+    ENVOYER VIA INSTAGRAM
+  </button>
+
+  <button type="button" onclick="envoyerProjet('messenger')">
+    ENVOYER VIA MESSENGER
+  </button>
+</div>
+
+<p class="note">
+    Votre message sera automatiquement copié.
+    Il vous suffira de le coller dans la conversation
+    Instagram ou Messenger pour envoyer votre demande.
+</p>
+
+        <p class="note" id="formStatus" role="status"></p>
+      </form>
+    
+    </div>
+
+  </section>
+</main>
+
+<footer>
+  © 2026 Biomorph Tattoo — Tous droits réservés.
+</footer>
+
+
+<script>
+async function envoyerProjet(plateforme) {
+    const formulaire = document.getElementById("contactForm");
+
+    if (!formulaire.reportValidity()) {
+        return;
+    }
+
+    const taille = document.getElementById("taille").value.trim();
+    const style = document.getElementById("style").value;
+    const emplacement = document.getElementById("emplacement").value.trim();
+    const projet = document.getElementById("message").value.trim();
+
+    const texte = `Bonjour !
+
+Je souhaite vous présenter mon projet de tatouage.
+
+Style : ${style}
+Emplacement : ${emplacement}
+Taille : ${taille}
+
+Description du projet :
+${projet}
+
+Merci !`;
+
+    try {
+        await navigator.clipboard.writeText(texte);
+        alert("Votre message a été copié ! Collez-le dans la conversation qui va s'ouvrir.");
+    } catch (erreur) {
+        window.prompt("Copiez ce message avant de continuer :", texte);
+    }
+
+    const lien = plateforme === "instagram"
+        ? "https://www.instagram.com/bio.morph_tattoo/"
+        : "https://m.me/Engrenagetattoo";
+
+    window.open(lien, "_blank");
+}
+</script>
+</body>
+</html>
